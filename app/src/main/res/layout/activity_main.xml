@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="00:00.00"
+        app:layout_constraintBottom_toTopOf="@id/text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시작"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintRight_toRightOf="parent" />
+    <Button
+        android:id="@+id/recode_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기록"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintRight_toLeftOf="@id/start_btn"
+        app:layout_constraintLeft_toRightOf="@id/lin"/>
+    <LinearLayout
+        android:id="@+id/lin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintRight_toLeftOf="@id/recode_btn"
+        app:layout_constraintLeft_toRightOf="@id/reset_btn">
+
+        <Button
+            android:id="@+id/stop_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정지" />
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content" >
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/reset_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="초기화"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintBottom_toTopOf="@id/lin">
+
+        <LinearLayout
+            android:id="@+id/recode_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
