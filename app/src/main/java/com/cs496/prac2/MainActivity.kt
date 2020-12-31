@@ -69,7 +69,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         recodeBtn?.setOnClickListener {
-            if(isRunning) lapTime()
+            if(isRunning) {
+                val lapTime = mService.getTime()
+                lapTime(lapTime)
+            }
         }
 
         stopBtn?.setOnClickListener {
@@ -108,8 +111,8 @@ class MainActivity : AppCompatActivity() {
         timeText?.text = "$min:$sec.$milli"
     }
 
-    private fun lapTime() {
-        val lapTime = mService.getTime()
+    private fun lapTime(lapTime: Int) {
+        mService.addRecord(lapTime)
         val textView = TextView(this).apply {
             setTextSize(20f)
         }
@@ -141,7 +144,10 @@ class MainActivity : AppCompatActivity() {
                 setTime()
             }
         }
-
+        var size = mService.getRecordSize()
+        for (i in 0 until size) {
+            lapTime(mService.getRecord(i))
+        }
     }
 
     private fun pause() {

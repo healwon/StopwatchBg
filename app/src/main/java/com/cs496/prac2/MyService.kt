@@ -16,7 +16,8 @@ class MyService: Service() {
     private var timerTask: Timer? = null
     private var id: Int = 0
 
-    //val records: ArrayList<Int> = ArrayList
+    val records: ArrayList<Int> = ArrayList<Int>()
+
     private val myBinder = MyBinder()
 
     inner class MyBinder: Binder() {
@@ -64,10 +65,19 @@ class MyService: Service() {
         isRunning = false
         isNotZero = false
         time = 0
+        records.clear()
     }
 
-    fun addRecord() {
+    fun addRecord(time: Int) {
+        records.add(time)
+    }
 
+    fun getRecordSize(): Int {
+        return records.size
+    }
+
+    fun getRecord(index: Int): Int {
+        return records[index]
     }
 
     fun getIsRunning(): Boolean {
